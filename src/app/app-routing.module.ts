@@ -4,8 +4,8 @@ import { DataDisplayComponent } from './data-display/data-display.component';
 import { ImagesUploadComponent } from './images-upload/images-upload.component';
 
 const routes: Routes = [
-  {path: 'data', component: DataDisplayComponent},
-  {path: 'upload', component: ImagesUploadComponent},
+  {path: 'data', component: ImagesUploadComponent},
+  { path: 'data-display', component: DataDisplayComponent },
   {path: '', redirectTo: 'data', pathMatch:'full'}
 ];
 

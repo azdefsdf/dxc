@@ -35,7 +35,7 @@ body {
     padding: 2rem;
   }
   
-  /* Animations */
+  /* Animations 
   
   #loadingMessage {
     animation: spin 1s linear infinite;
@@ -49,7 +49,7 @@ body {
       transform: rotate(360deg);
     }
   }
-  
+  */
   .success-message {
     color: green;
     font-weight: bold;
@@ -143,4 +143,11 @@ body {
 .navbar-nav .nav-link.active {
     font-weight: bolder; /* Make active link bolder */
     /* Optionally add additional styling for the active link */
+}
+#loadingMessage {
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+#loadingMessage.d-none {
+  display: none;
 }

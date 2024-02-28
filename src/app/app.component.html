@@ -1,2 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing Front-End</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-image: linear-gradient(to right, #f4f4f4, #e0e0e0);">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-3 d-flex align-items-center fs-4 text-decoration-none" href="#">
+                <img src="https://media.licdn.com/dms/image/D4E0BAQGIbhd400aK8g/company-logo_200_200/0/1696926372236/eurafric_information_logo?e=2147483647&v=beta&t=JHNMnLIA4d88zm35FhpUDmJMIfbF0XFeWkC_NMU8CTY" alt="Logo" height="60" width="60" class="me-2">
+                EAI Proccessing Tool
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Login</a></li>
+                            <li><a class="dropdown-item" href="#">Register</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<app-images-upload></app-images-upload>
+    <main>
+        <!-- Router Outlet for rendering other components -->
+        <router-outlet></router-outlet>
+        
+      </main>
+
+      <!-- Footer -->
+      
+</body>
+</html>

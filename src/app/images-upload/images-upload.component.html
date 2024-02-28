@@ -1,69 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Processing Front-End</title>
-    <link rel="stylesheet" href="/Abbyy/src/styles.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-image: linear-gradient(to right, #f4f4f4, #e0e0e0);">
-        <div class="container-fluid">
-            <a class="navbar-brand ms-3 d-flex align-items-center fs-4 text-decoration-none" href="#">
-                <img src="https://media.licdn.com/dms/image/D4E0BAQGIbhd400aK8g/company-logo_200_200/0/1696926372236/eurafric_information_logo?e=2147483647&v=beta&t=JHNMnLIA4d88zm35FhpUDmJMIfbF0XFeWkC_NMU8CTY" alt="Logo" height="60" width="60" class="me-2">
-                EAI Proccessing Tool
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Account
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Login</a></li>
-                            <li><a class="dropdown-item" href="#">Register</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <main class="container mt-4">
         <h3 class="text-center mb-4">Submit Images for Processing</h3>
-
+    
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-body">
                         <p class="card-text">Select one or more images to upload:</p>
                         <div class="mb-3">
-                            <input class="form-control" type="file" id="imageInput" multiple>
+                            <input class="form-control" type="file" id="imageUpload" (change)="onFileSelected($event)" multiple>
                         </div>
-                        <button type="button" class="btn btn-primary w-100" id="submitButton">Submit Images</button>
-
-                        <div id="loadingMessage" class="text-center mt-4 d-none">
-                            <div class="spinner-border" role="status">
+                        <button type="button" class="btn btn-primary w-100" id="submitButton" (click)="onSubmit()">Submit Images</button>
+    
+                        <div id="loadingMessage" class="text-center mt-4" [class.d-none]="!loading">
+                            <div class="spinner-border text-primary mb-2" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
-                            <p>Processing images...</p>
+                            <div id="currentStepMessage" class="text-center mt-2" *ngIf="currentStep">
+                                <p class="text-primary">currentStep : {{ currentStep }}</p>
+                              </div>
+                            <p class="text-primary">Processing images...</p>
                         </div>
-
-                        <div id="resultsTable" class="table table-striped mt-4 d-none"></div>
+    
+                        <div id="resultsTable" class="table table-striped mt-4" [class.d-none]="loading"></div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-   </body>
-</html>
