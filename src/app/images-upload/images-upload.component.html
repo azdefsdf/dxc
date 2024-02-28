@@ -1,30 +1,35 @@
+<main class="container mt-4">
+    <h3 class="text-center mb-4">Submit Images for Processing</h3>
 
-    <main class="container mt-4">
-        <h3 class="text-center mb-4">Submit Images for Processing</h3>
-    
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <p class="card-text">Select one or more images to upload:</p>
-                        <div class="mb-3">
-                            <input class="form-control" type="file" id="imageUpload" (change)="onFileSelected($event)" multiple>
-                        </div>
-                        <button type="button" class="btn btn-primary w-100" id="submitButton" (click)="onSubmit()">Submit Images</button>
-    
-                        <div id="loadingMessage" class="text-center mt-4" [class.d-none]="!loading">
-                            <div class="spinner-border text-primary mb-2" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                            <div id="currentStepMessage" class="text-center mt-2" *ngIf="currentStep">
-                                <p class="text-primary">currentStep : {{ currentStep }}</p>
-                              </div>
-                            <p class="text-primary">Processing images...</p>
-                        </div>
-    
-                        <div id="resultsTable" class="table table-striped mt-4" [class.d-none]="loading"></div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <!-- Upload form here -->
+                    <p class="card-text">Select one or more images to upload:</p>
+                    <div class="mb-3">
+                        <input class="form-control" type="file" id="imageUpload" (change)="onFileSelected($event)" multiple>
                     </div>
+                    <button type="button" class="btn btn-primary w-100" id="submitButton" (click)="onSubmit()">Submit Images</button>
+
+                    <!-- Loading message and spinner -->
+                    <div id="loadingMessage" class="text-center mt-4" [class.d-none]="!loading">
+                        <div class="spinner-border text-primary mb-2" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div id="currentStepMessage" class="text-center mt-2" *ngIf="currentStep">
+                            <p class="text-primary">currentStep : {{ currentStep }}</p>
+                        </div>
+                        <p class="text-primary">Processing images...</p>
+                    </div>
+
+                    <!-- Results table -->
+                    <div id="resultsTable" class="table table-striped mt-4" [class.d-none]="loading"></div>
+
+                    <!-- Add the DataDisplayComponent here -->
+
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>

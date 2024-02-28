@@ -1,42 +1,35 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-data-display',
   templateUrl: './data-display.component.html',
   styleUrls: ['./data-display.component.css']
 })
-export class DataDisplayComponent implements OnInit {
-  jsonData: any; // Assuming your response data is stored here
-  @Input() responseData: any;
+export class DataDisplayComponent {
+  @Input() jsonData: any; // Input property to receive data from parent component
 
+  documentHeaders: any[] = [];
+  invoiceTableHeaders: string[] = [];
+  invoiceTableData: any[] = [];
+responseData: any;
 
-  onDataLoaded(data: any) {
-    // Handle the emitted data
-    this.jsonData = data;
-  }
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    // You can fetch the data from the server again if needed
-    // For example:
-    // this.http.get('').subscribe(
-    //  (response: any) => {
-    //    this.jsonData = response;
-    //   },
-    //   (error: any) => {
-    //     console.error('Error fetching data:', error);
-    //   }
-    //  );
-    
-    //For demonstration purpose, assuming the jsonData is already available
-    this.jsonData = {
-     "data": [
-        ["Tiger Nixon", "System Architect", "Edinburgh", 61, "2011/04/25", "$320,800","System Architect","System Architect"],
-        ["Garrett Winters", "Accountant", "Tokyo", 63, "2011/07/25", "$170,750","Accountant","Accountant"],
-        ["Ashton Cox", "Junior Technical Author", "San Francisco", 66, "2009/01/12", "$86,000","Accountant","Accountant"],
-        // Add more data as needed
-     ]
-     };
+  ngOnChanges(): void {
+    if (this.jsonData && this.jsonData.DocumentData) {
+      const documentData = this.jsonData.DocumentData;
+      this.documentHeaders = Object.keys(documentData).map(key => ({
+        name: key,
+        value: documentData[key].Value
+      }));
+    }
+
+    if (this.jsonData && this.jsonData.DocumentData && this.jsonData.DocumentData.Fields) {
+      const invoiceTable = this.jsonData.DocumentData.Fields.find((field: any) => field.Name === 'InvoiceTable');
+      if (invoiceTable && invoiceTable.Rows) {
+        this.invoiceTableHeaders = Object.keys(invoiceTable.Rows[0].Columns);
+        this.invoiceTableData = invoiceTable.Rows.map((row: any) => Object.values(row.Columns));
+      }
+    }
   }
 }
