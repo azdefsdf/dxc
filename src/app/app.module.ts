@@ -8,11 +8,13 @@ import { ImagesUploadComponent } from './images-upload/images-upload.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { JsonTableComponent } from './json-table/json-table.component';
 @NgModule({
   declarations: [
     AppComponent,
     DataDisplayComponent,
-    ImagesUploadComponent
+    ImagesUploadComponent,
+    JsonTableComponent
   ],
   imports: [
     BrowserModule,

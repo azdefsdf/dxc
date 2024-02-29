@@ -16,6 +16,7 @@ export class ImagesUploadComponent {
   responseData: any;
   selectedFiles: File[] = [];
   currentStep: string = 'Uploading images';
+  processingCompleted = false;
 
   constructor(
     private http: HttpClient, 
@@ -45,8 +46,9 @@ export class ImagesUploadComponent {
     //  this.dataLoaded.emit(this.responseData);
        //this.dataLoaded.emit("TT");
       // this.router.navigate(['/data-display'], { state: { jsonData: this.responseData.Documents } });
+      this.processingCompleted = true; // Set the flag to true
 
-       this.router.navigate(['/data-display']);
+       //this.router.navigate(['/data-display']);
       },
       error => {
         this.loading = false;

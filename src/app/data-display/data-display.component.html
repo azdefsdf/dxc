@@ -1,4 +1,7 @@
-<!-- <div *ngIf="documentHeaders.length > 0">
+
+
+
+<div *ngIf="documentHeaders.length > 0">
   <h2>Document Information</h2>
   <ul>
     <li *ngFor="let header of documentHeaders">{{ header.name }}: {{ header.value }}</li>
@@ -19,8 +22,10 @@
       </tr>
     </tbody>
   </table>
-</div> -->
-<!-- <ng-container *ngIf="responseData">
+</div> 
+ <ng-container *ngIf="responseData">
+
+
 <div>
   <table>
       <tr *ngFor="let document of responseData.Documents">
@@ -38,7 +43,21 @@
       </tr>
   </table>
 </div>
-</ng-container> -->
+</ng-container> 
+
+
+
+<div>
+  <h2>Document Information</h2>
+  <table>
+  <tr *ngFor="let header of responseData.Documents">
+    <li >{{ header.InvoiceNumber }}: {{ header.value }}</li>
+    <li >{{ header.InvoiceDate }}: {{ header.value }}</li>
+    <li >{{ header.DeliveryAddress }}: {{ header.value }}</li>
+    <li >{{ header.TotalAmount }}: {{ header.value }}</li>
+  </tr>
+</table>
+</div>
 
 <div>
   <table>

@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let field of jsonData.Documents[0].DocumentData.Fields">
+            <td>{{ field.Name }}</td>
+            <td>{{ field.Value }}</td>
+        </tr>
+        <tr *ngFor="let row of jsonData.Documents[0].DocumentData.Fields[4].Rows">
+            <td>{{ row.Columns[0].Name }}</td>
+            <td>{{ row.Columns[0].Value }}</td>
+        </tr>
+    </tbody>
+</table>

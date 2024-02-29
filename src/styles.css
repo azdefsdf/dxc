@@ -151,3 +151,39 @@ body {
 #loadingMessage.d-none {
   display: none;
 }
+
+
+/* Style the container */
+.invoice-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+}
+
+/* Style the header */
+.header {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-item {
+  flex: 1;
+  padding: 8px;
+  font-weight: bold;
+}
+
+/* Style the body */
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.body .header-item {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.body .header-item div {
+  flex: 1;
+  padding: 8px;
+}

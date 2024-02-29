@@ -1,4 +1,5 @@
-<main class="container mt-4">
+<main class="container mt-4" id="upload-image" *ngIf="!processingCompleted">
+
     <h3 class="text-center mb-4">Submit Images for Processing</h3>
 
     <div class="row justify-content-center">
@@ -34,6 +35,37 @@
             </div>
         </div>
     </div>
+</main>
+
+
+<main id="data-display" *ngIf="processingCompleted">
+
+   <!-- <app-json-table></app-json-table> -->
+     <div>
+        <h2>Document Information</h2>
+        <table class="table table-bordered">
+            <thead *ngFor="let document of responseData.Documents" class="thead-dark">
+                <tr *ngFor="let field of document.DocumentData.Fields">
+                    <th scope="col">{{ field.Name }} : {{ field.Value }}</th>
+                </tr>
+            </thead>
+        </table>
+
+<div class="invoice-table" >   
+
+        <div class="header d-flex" >
+            <div class="header-item" *ngFor="let name of responseData.Documents[0].DocumentData.Fields[4].Rows[0].Columns">
+                <div>{{name.Name}}</div>
+            </div>
+        </div>
+        <div class="body" >
+            <div class="header-item" *ngFor="let row of responseData.Documents[0].DocumentData.Fields[4].Rows">
+                <div *ngFor="let column of row.Columns">{{column.Value}}</div>
+            </div>
+        </div>
+    </div>
+</div>
 
     
+
 </main>
