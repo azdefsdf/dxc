@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class ImagesUploadComponent {
 
-  @Output() dataLoaded: EventEmitter<any> = new EventEmitter();
   jsonData: any;
 
   loading = false;
@@ -43,9 +42,11 @@ export class ImagesUploadComponent {
         this.loading = false;
         this.responseData = response;
         console.log(JSON.stringify(this.responseData));
-        this.dataLoaded.emit(this.responseData);
+    //  this.dataLoaded.emit(this.responseData);
+       //this.dataLoaded.emit("TT");
+      // this.router.navigate(['/data-display'], { state: { jsonData: this.responseData.Documents } });
 
-        this.router.navigate(['/data-display']);
+       this.router.navigate(['/data-display']);
       },
       error => {
         this.loading = false;
@@ -55,9 +56,9 @@ export class ImagesUploadComponent {
     );
   }
 
-  onDataLoaded(event: any) {
-    // Handle the event data here if needed
-    console.log('Data loaded:', event); // This will log the emitted event data to the console
+  // onDataLoaded(event: any) {
+  //   // Handle the event data here if needed
+  //   console.log('Data loaded:', event); // This will log the emitted event data to the console
 
-  }
+  // }
 }

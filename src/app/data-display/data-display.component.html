@@ -1,4 +1,4 @@
-<div *ngIf="documentHeaders.length > 0">
+<!-- <div *ngIf="documentHeaders.length > 0">
   <h2>Document Information</h2>
   <ul>
     <li *ngFor="let header of documentHeaders">{{ header.name }}: {{ header.value }}</li>
@@ -19,4 +19,42 @@
       </tr>
     </tbody>
   </table>
+</div> -->
+<!-- <ng-container *ngIf="responseData">
+<div>
+  <table>
+      <tr *ngFor="let document of responseData.Documents">
+          <td>
+              <table>
+                  <tr *ngFor="let field of document.DocumentData.Fields">
+                      <td>{{ field.Name }}</td>
+                      <td>{{ field['$type'] }}</td>
+                      <td>{{ field.Value }}</td>
+                  </tr>
+              </table>
+          </td>
+
+
+      </tr>
+  </table>
 </div>
+</ng-container> -->
+
+<div>
+  <table>
+      <tr *ngFor="let document of responseData.Documents">
+          <td>
+              <table>
+                  <tr *ngFor="let field of document.DocumentData.Fields">
+                      <td>{{ field.Name }}</td>
+                      <td>{{ field['$type'] }}</td>
+                      <td>{{ field.Value }}</td>
+                  </tr>
+              </table>
+          </td>
+
+
+      </tr>
+  </table>
+</div>
+

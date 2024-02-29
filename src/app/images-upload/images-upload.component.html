@@ -8,9 +8,11 @@
                     <!-- Upload form here -->
                     <p class="card-text">Select one or more images to upload:</p>
                     <div class="mb-3">
-                        <input class="form-control" type="file" id="imageUpload" (change)="onFileSelected($event)" multiple>
+                        <input class="form-control" type="file" id="imageUpload" (change)="onFileSelected($event)"
+                            multiple>
                     </div>
-                    <button type="button" class="btn btn-primary w-100" id="submitButton" (click)="onSubmit()">Submit Images</button>
+                    <button type="button" class="btn btn-primary w-100" id="submitButton" (click)="onSubmit()">Submit
+                        Images</button>
 
                     <!-- Loading message and spinner -->
                     <div id="loadingMessage" class="text-center mt-4" [class.d-none]="!loading">
@@ -32,4 +34,6 @@
             </div>
         </div>
     </div>
+
+    
 </main>
