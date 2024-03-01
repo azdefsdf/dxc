@@ -41,15 +41,20 @@
 <main id="data-display" *ngIf="processingCompleted">
 
    <!-- <app-json-table></app-json-table> -->
-     <div>
-        <h2>Document Information</h2>
-        <table class="table table-bordered">
-            <thead *ngFor="let document of responseData.Documents" class="thead-dark">
-                <tr *ngFor="let field of document.DocumentData.Fields">
-                    <th scope="col">{{ field.Name }} : {{ field.Value }}</th>
-                </tr>
-            </thead>
-        </table>
+   <div class="custom-invoice-table">
+    <div class="custom-header d-flex">
+        <div class="custom-header-item" *ngFor="let field of responseData.Documents[0].DocumentData.Fields">
+                <div>{{ field.Name }}</div>
+            </div>
+    </div>
+    <div class="custom-body">
+        <div class="custom-body-item" *ngFor="let field of responseData.Documents[0].DocumentData.Fields">
+                <div>{{ field.Value }}</div>
+        </div>
+    </div>
+    
+    <div class="separator"></div>
+
 
 <div class="invoice-table" >   
 
@@ -59,7 +64,7 @@
             </div>
         </div>
         <div class="body" >
-            <div class="header-item" *ngFor="let row of responseData.Documents[0].DocumentData.Fields[4].Rows">
+            <div class="body-item" *ngFor="let row of responseData.Documents[0].DocumentData.Fields[4].Rows">
                 <div *ngFor="let column of row.Columns">{{column.Value}}</div>
             </div>
         </div>
